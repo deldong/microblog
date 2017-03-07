@@ -9,7 +9,21 @@ from flask import render_template
 @app.route('/index')
 def index():
     user = {'nickname':'Delon'} #fake user
-    return render_template("index.html",title='Home',user=user)
+    posts = [  # fake array of posts
+        {
+            'author': {'nickname': 'John'},
+            'body': 'Beautiful day in Portland!'
+        },
+        {
+            'author': {'nickname': 'Susan'},
+            'body': 'The Avengers movie was so cool!'
+        }
+    ]
+    return render_template("index.html",
+                           title = 'Home',
+                           user = user,
+                           posts = posts
+                           )
 """
 为了渲染模板，我们必须从 Flask 框架中导入一个名为 render_template 的新函数。此函数需要传入模板名以及一些模板变量列表，返回一个所有变量被替换的渲染的模板。
 
