@@ -1,3 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Hi, {{user.nickname}}!</h1>
+{% for post in posts %}
+<div><p>{{post.author.nickname}} says: <b>{{post.body}}</b></p></div>
+{% endfor %}
+{% endblock %}
+
+<!--
+@2.0 ： 模版使用
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +25,9 @@
     {% endfor %}
 </body>
 </html>
+>
 <!--
+@1.0 : 最初版本
     return '''
 <html>
   <head>
